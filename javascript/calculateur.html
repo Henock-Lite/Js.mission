@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="montant" type="number" placeholder="Montant du prêt" />
+    <input id="taux" type="number" placeholder="Taux d'intérêt annuel" />
+    <input id="duree" type="number" placeholder="Durée en années" />
+    <button onclick="calculerPret()">Calculer</button>
+    <p id="pretResult"></p>
+
+    <script>
+      function calculerPret() {
+        let montant = parseFloat(document.getElementById("montant").value);
+        let taux = parseFloat(document.getElementById("taux").value) / 100 / 12;
+        let duree = parseInt(document.getElementById("duree").value) * 12;
+        let mensualite =
+          (montant * taux * Math.pow(1 + taux, duree)) /
+          (Math.pow(1 + taux, duree) - 1);
+        document.getElementById("pretResult").textContent =
+          "Mensualité : " + mensualite.toFixed(2) + " Fc";
+      }
+    </script>
+  </body>
+</html>

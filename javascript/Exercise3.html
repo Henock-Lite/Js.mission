@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#">
+      <input type="date" id="date" />
+      <p class="displayDate"></p>
+      <p class="month"></p>
+      <p class="years"></p>
+      <p class="alldate">
+
+      </p>
+    </form>
+    <style>
+      body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+input[type="date"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="date"]:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
+}
+
+p.alldate {
+  font-weight: bold;
+  color: #d9534f;
+}
+
+    </style>
+
+    <script>
+   document.addEventListener("DOMContentLoaded", () => {
+  let date = document.getElementById("date");
+  let years = document.querySelector(".years");
+  let month = document.querySelector(".month");
+  let alldate = document.querySelector(".alldate");
+
+ 
+
+  let currentdate = new Date();
+  let test = currentdate.toISOString().split("T")[0];
+
+  date.addEventListener("change", (e) => {
+    function traitementDate(chaine) {
+      let date = new Date(chaine);
+
+      let alldate = date.toLocaleDateString("fr-FR", {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+      });
+
+      let year = date.toLocaleDateString("fr-FR", {
+        year: "numeric",
+      });
+
+      let month = date.toLocaleDateString("fr-FR", {
+        month: "numeric",
+      });
+
+      return { alldate, year, month };
+    }
+
+    let valueDate = e.target.value;
+    let result = traitementDate(valueDate);
+
+    month.textContent = "Votre mois : " + result.month;
+    years.textContent = "Votre année : " + result.year;
+
+    let date1 = new Date(test);
+    let date2 = new Date(valueDate);
+
+  
+
+    let diffTime = Math.abs(date2 - date1);
+    let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    alldate.textContent="Nombre de jours de différence :"+ diffDays;
+  });
+});
+
+    </script>
+
+    
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horloge </title>
+  </head>
+  <body>
+    <h2>Horloge</h2>
+    <input type="text" id="clock" readonly />
+
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        input {
+            font-size: 3rem;
+            width: 200px;
+            padding: 10px;
+            border: 2px solid pink;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0px 0px 10px pink;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: crimson;
+            box-shadow: 0px 0px 10px crimson;
+        }
+
+       
+    </style>
+
+    <script>
+      function Clock() {
+        let now = new Date();
+        let hours = now.getHours().toString().padStart(2, "0");
+        let minutes = now.getMinutes().toString().padStart(2, "0");
+        let seconds = now.getSeconds().toString().padStart(2, "0");
+
+        document.getElementById(
+          "clock"
+        ).value = `${hours}:${minutes}:${seconds}`;
+
+        setInterval(() => {
+          Clock();
+        }, 1000);
+      }
+
+      Clock();
+    </script>
+  </body>
+</html>

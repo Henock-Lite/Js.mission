@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#">
+      <input type="number" id="Number" placeholder="Racine carrée " />
+      <div></div>
+      <button class="btn">Nombre aléatoire</button>
+      <p id="displayAleatoire"></p>
+    </form>
+
+    <style>
+     *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+     }
+      body{
+
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 350px;
+        margin: auto;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      input[type="number"]:focus {
+        border-color: rgb(201, 69, 96);
+        outline: none;
+      }
+
+      .btn {
+        padding: 12px 18px;
+        border: none;
+        background-color: rgb(201, 69, 96);
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s;
+      }
+
+      .btn:hover {
+        background-color: crimson;
+        transform: scale(1.05);
+      }
+
+      #displayAleatoire,
+      p {
+        font-size: 20px;
+        color: #333;
+        text-align: center;
+        margin-top: 5px;
+      }
+    </style>
+
+    <script>
+      const Number = document.getElementById("Number");
+      const div = document.getElementsByTagName("div")[0];
+      const baliseP = document.createElement("p");
+      div.appendChild(baliseP);
+      const btnAleatoire = document.querySelector(".btn");
+
+      Number.addEventListener("input", (e) => {
+        let square = Math.sqrt(Number.value);
+        baliseP.textContent = square;
+      });
+
+      function aleatoire(max, min) {
+        max = 100;
+        min = 1;
+        let displayAleatoire = document.getElementById("displayAleatoire");
+        let generateNumber;
+        generateNumber = Math.ceil(Math.random() * max + min);
+        displayAleatoire.textContent = generateNumber;
+      }
+      btnAleatoire.addEventListener("click", aleatoire);
+    </script>
+  </body>
+</html>
