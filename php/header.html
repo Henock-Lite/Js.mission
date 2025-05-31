@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Erreur de formulaire</title>
+  <meta http-equiv="refresh" content="5;url=index.html">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .error-container {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .error-container h1 {
+      color: #dc2626;
+      font-size: 26px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .error-container p {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    .error-container a {
+      color: #764ba2;
+      text-decoration: underline;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="error-container">
+    <h1>Erreur dans le formulaire</h1>
+    <p>Un ou plusieurs champs sont invalides (ex : adresse email incorrecte).</p>
+    <p>Redirection automatique vers le formulaire dans quelques secondes...</p>
+    <p><a href="index.html">Cliquez ici si vous n’êtes pas redirigé</a></p>
+  </div>
+
+</body>
+</html>
